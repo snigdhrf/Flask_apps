@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Calculate{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg mx-auto mt-5" style="max-width: 500px;">
+    <div class="card-body">
+        <h2 class="card-title text-center mb-4 text-primary">Calculate Average Marks</h2>
+
+        {% if error %}
+        <div class="alert alert-danger text-center" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('calculate') }}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Maths</label>
+                <input type="text" name="maths" class="form-control" placeholder="Enter marks" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Science</label>
+                <input type="text" name="science" class="form-control" placeholder="Enter marks" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">History</label>
+                <input type="text" name="history" class="form-control" placeholder="Enter marks" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Calculate</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

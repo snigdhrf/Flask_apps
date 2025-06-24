@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    {% if results >= 50 %}
+        <div class="alert alert-success" role="alert">
+            🎉 <strong>Passed!</strong> Average Marks: {{ results }} | Grade: {{ grade }} <br>
+            <em>{{ remark }}</em>
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            X <strong>Failed.</strong> Average Marks: {{ results }} | Grade: {{ grade }} <br>
+            <em>{{ remark }}</em>
+        </div>
+    {% endif %}
+
+    <a href="/calculate" class="btn btn-outline-primary mt-3">Calculate Again</a>
+</div>
+{% endblock %}
